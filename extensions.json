@@ -1,5 +1,9 @@
 {
   "recommendations": [
-    "fortran-lang.linter-gfortran"
+    "fortran-lang.linter-gfortran",
+    "aaron-bond.better-comments",
+    "intel-corporation.oneapi-environment-configurator",
+    "eamodio.gitlens",
+    "GitHub.vscode-pull-request-github"
   ]
 }
