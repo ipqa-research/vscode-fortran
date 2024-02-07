@@ -1,2 +1,1 @@
-# vscode-fortran
-Configuraciones de Fortran para vscode, permitiendo uso y debuggeo con fpm 
+# Fortran VScode settings for debugging

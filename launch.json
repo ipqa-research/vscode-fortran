@@ -1,11 +1,11 @@
-  "version": "0.2.0",
+{  "version": "0.2.0",
   "configurations": [
     {
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      // To launch an specific program, use it's name instead of ${fileBasenameNoExtension} 
-      "program": "${workspaceFolder}/build/vscode/bin/${fileBasenameNoExtension}",
+      // To launch an specific program, use it's name instead of ${workspaceFolderBasename}
+      "program": "${workspaceFolder}/build/vscode/bin/${workspaceFolderBasename}",
       // Optional arguments here:
       "args": [],
       "stopAtEntry": true,
