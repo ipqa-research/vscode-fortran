@@ -1,4 +1,18 @@
 {
+    "fortran.linter.includePaths": [
+        "${workspaceFolder}/build/gfo*"
+    ],
+    "fortran.linter.fypp.enabled": true,
+    "fortran.fortls.excludeDirectories": [
+        "build",
+        "doc/**"
+    ],
+    "fortran.formatting.findentArgs": [
+        "--refactor_end",
+        "-i4"
+    ],
+
+    // Rulers
     "[FortranFixedForm]":{
         "editor.tabSize":6,
         "editor.rulers": [
