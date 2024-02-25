@@ -5,6 +5,7 @@
     "aaron-bond.better-comments",
     "intel-corporation.oneapi-environment-configurator",
     "eamodio.gitlens",
-    "GitHub.vscode-pull-request-github"
+    "GitHub.vscode-pull-request-github",
+    "vscode-icons"
   ]
 }
