@@ -32,7 +32,7 @@
       "type": "cppdbg",
       "request": "launch",
       // To launch an specific program, use it's name instead of ${workspaceFolderBasename}
-      "program": "${workspaceFolder}/build/example",
+      "program": "${workspaceFolder}/build/${workspaceFolderBasename}-demo",
       // Optional arguments here:
       "args": [],
       "stopAtEntry": true,
