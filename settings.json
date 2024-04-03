@@ -9,7 +9,7 @@
     ],
     "fortran.formatting.findentArgs": [
         "--refactor_end",
-        "-i4"
+        "-i3"
     ],
 
     // Rulers
