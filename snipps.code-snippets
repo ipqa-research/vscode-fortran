@@ -20,5 +20,40 @@
 		],
 		"description": "Documentation template",
         "scope": ["FortranFreeForm", "FortranFixedForm"]
+	},
+	"Hyperdual-based ArModel": {
+		"prefix":"hdar",
+		"body":[
+			"module yaeos__${1:model_name}",
+			"   use yaeos, only: pr, R, ArModelAdiff, hyperdual",
+			"",
+			"   type, extends(ArModelAdiff) :: $1",
+			"      ${2: parameters$}",
+			"   contains",
+			"      procedure :: Ar => arfun",
+			"   end type"
+			"contains"
+			"   subroutine arfun(model, n, v, t, Ar)"
+			"      class($1), intent(in) :: model !! Model",
+			"      type(hyperdual), intent(in) :: n(:) !! Number of moles vector",
+			"      type(hyperdual), intent(in) :: v !! Volume [L/mol]",
+			"      type(hyperdual), intent(in) :: t !! Temperature [K]",
+			"      type(hyperdual), intent(out) :: Ar !! Residual Helmholtz energy"
+			"",
+			"         ${3: Ar expresion}",
+			"   end subroutine",
+			"",
+			"   function v0(self, n, P, T)",
+			"      class($1), intent(in) :: self !! Model",
+			"      real(pr), intent(in) :: n(:) !! Moles vector",
+			"      real(pr), intent(in) :: P !! Pressure [bar]",
+			"      real(pr), intent(in) :: T !! Temperature [K]",
+			"      real(pr) :: v0",
+			"",
+			"      v0 = 0.001_pr"
+			"   end function v0",
+			"end module $1",
+
+		]
 	}
 }
