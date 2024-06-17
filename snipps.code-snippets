@@ -4,14 +4,15 @@
 		"body":[
 			"$LINE_COMMENT ==============================================================",
 			"! $1",
-			"$LINE_COMMENT ==============================================================",
+			"$LINE_COMMENT --------------------------------------------------------------",
 			"$0"
 		]
 	}, 
 	"Documentation": {
+        "scope": ["FortranFreeForm", "FortranFixedForm"],
 		"prefix": "doc",
 		"body": [
-			"!! # ${3:Title}",
+			"!! # ${1:Title}",
 			"!! ${2:Simple description}",
 			"!!",
             "!! # Description",
@@ -27,9 +28,9 @@
 			"!!",
 		],
 		"description": "Documentation template",
-        "scope": ["FortranFreeForm", "FortranFixedForm"]
 	},
 	"Hyperdual-based ArModel": {
+        "scope": ["FortranFreeForm", "FortranFixedForm"],
 		"prefix":"hdar",
 		"body":[
 			"module yaeos__${1:model_name}",
@@ -39,14 +40,14 @@
 			"      ${2: parameters$}",
 			"   contains",
 			"      procedure :: Ar => arfun",
-			"   end type"
-			"contains"
-			"   subroutine arfun(model, n, v, t, Ar)"
+			"   end type",
+			"contains",
+			"   subroutine arfun(model, n, v, t, Ar)",
 			"      class($1), intent(in) :: model !! Model",
 			"      type(hyperdual), intent(in) :: n(:) !! Number of moles vector",
 			"      type(hyperdual), intent(in) :: v !! Volume [L/mol]",
 			"      type(hyperdual), intent(in) :: t !! Temperature [K]",
-			"      type(hyperdual), intent(out) :: Ar !! Residual Helmholtz energy"
+			"      type(hyperdual), intent(out) :: Ar !! Residual Helmholtz energy",
 			"",
 			"         ${3: Ar expresion}",
 			"   end subroutine",
@@ -58,7 +59,7 @@
 			"      real(pr), intent(in) :: T !! Temperature [K]",
 			"      real(pr) :: v0",
 			"",
-			"      v0 = 0.001_pr"
+			"      v0 = 0.001_pr",
 			"   end function v0",
 			"end module $1",
 
