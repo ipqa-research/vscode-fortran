@@ -8,6 +8,11 @@
 			"$0"
 		]
 	}, 
+	"Use yaeos": {
+        "scope": ["FortranFreeForm", "FortranFixedForm"],
+		"prefix":"usy",
+		"body": ["use yaeos__$1"]
+	},
 	"Documentation": {
         "scope": ["FortranFreeForm", "FortranFixedForm"],
 		"prefix": "doc",
