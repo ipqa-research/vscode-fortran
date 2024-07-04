@@ -8,6 +8,14 @@
 			"$0"
 		]
 	}, 
+	"Cite Michelsen-Møllerup": {
+		"prefix" : "mm",
+		"body":[
+			"Thermodynamic Models: Fundamental and Computational Aspects, Michael L.",
+   			"!! Michelsen, Jørgen M. Mollerup. Tie-Line Publications, Denmark (2004)",
+   			"!! [doi](http://dx.doi.org/10.1016/j.fluid.2005.11.032)",
+		 ]
+	}, 
 	"Use yaeos": {
         "scope": ["FortranFreeForm", "FortranFixedForm"],
 		"prefix":"usy",
