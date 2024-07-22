@@ -77,5 +77,31 @@
 			"end module $1",
 
 		]
+	},
+	"FittingProblem": {
+        "scope": ["FortranFreeForm", "FortranFixedForm"],
+		"prefix":"fp",
+		"body":[
+			"module yaeos__fitting_$1",
+			"   use yaeos, only: pr, ArModel, GeModel",
+			"   use yaeos__fitting, only: FittingProblem",
+			"",
+			"   type, extends(FittingProblem) :: Fit$2",
+			"   contains",
+			"      procedure :: get_model_from_X",
+			"   end type",
+			"",
+			"contains",
+			"",
+			"   type(Fit$2) function get_model_from_X(X) result(model)",
+			"      real(pr), intent(in) :: X(:) !! Vector of fitting parameters",
+			"      class(ArModel), allocatable :: model !! Setted up model",
+			"",
+			"      $3",
+			"   end function",
+			"end module",
+		]
+
+
 	}
 }
