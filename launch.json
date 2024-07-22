@@ -5,7 +5,35 @@
       "type": "cppdbg",
       "request": "launch",
       // To launch an specific program, use it's name instead of ${workspaceFolderBasename}
-      "program": "${workspaceFolder}/build/vscode/bin/${workspaceFolderBasename}",
+      // "program": "${workspaceFolder}/build/vscode/bin/${workspaceFolderBasename}",
+      // "program": "${workspaceFolder}/build/vscode/bin/fit",
+      "program": "${workspaceFolder}/build/vscode/bin/tpd",
+      // Optional arguments here:
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "fpm: install"
+    },
+    {
+      "name": "(gdb) Launch this program",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/vscode/bin/${fileBasenameNoExtension}",
       // Optional arguments here:
       "args": [],
       "stopAtEntry": true,
@@ -31,8 +59,8 @@
       "name": "(gdb) Launch example",
       "type": "cppdbg",
       "request": "launch",
-      // To launch an specific program, use it's name instead of ${workspaceFolderBasename}
-      "program": "${workspaceFolder}/build/${workspaceFolderBasename}-demo",
+      // "program": "${workspaceFolder}/build/${workspaceFolderBasename}-demo",
+      "program": "${workspaceFolder}/build/demo",
       // Optional arguments here:
       "args": [],
       "stopAtEntry": true,
@@ -58,7 +86,7 @@
       "name": "(gdb) Launch Test",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/build/vscode/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "program": "${workspaceFolder}/build/vscode/test/${fileBasenameNoExtension}",
       "args": [],
       "stopAtEntry": true,
       "cwd": "${workspaceFolder}",
