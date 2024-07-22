@@ -11,10 +11,9 @@
         "--refactor_end",
         "-i3"
     ],
-
     // Rulers
-    "[FortranFixedForm]":{
-        "editor.tabSize":6,
+    "[FortranFixedForm]": {
+        "editor.tabSize": 6,
         "editor.rulers": [
             {
                 "column": 5,
@@ -30,13 +29,24 @@
             }
         ],
     },
-    "[FortranFreeForm]":{
-        "editor.tabSize":3,
+    "[FortranFreeForm]": {
+        "editor.tabSize": 3,
         "editor.rulers": [
             {
                 "column": 80,
                 "color": "green"
             }
-        ]
-}
+        ],
+    },
+    "better-comments.tags": [
+        {
+            "tag": "!!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        }
+    ]
 }
