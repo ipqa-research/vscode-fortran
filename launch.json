@@ -1,13 +1,10 @@
 {  "version": "0.2.0",
   "configurations": [
-    {
-      "name": "(gdb) Launch",
+    { "name": "(gdb) Launch main program",
       "type": "cppdbg",
       "request": "launch",
       // To launch an specific program, use it's name instead of ${workspaceFolderBasename}
-      // "program": "${workspaceFolder}/build/vscode/bin/${workspaceFolderBasename}",
-      // "program": "${workspaceFolder}/build/vscode/bin/fit",
-      "program": "${workspaceFolder}/build/vscode/bin/tpd",
+      "program": "${workspaceFolder}/build/vscode/bin/${workspaceFolderBasename}",
       // Optional arguments here:
       "args": [],
       "stopAtEntry": true,
@@ -29,8 +26,7 @@
       ],
       "preLaunchTask": "fpm: install"
     },
-    {
-      "name": "(gdb) Launch this program",
+    { "name": "(gdb) Launch this program",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/vscode/bin/${fileBasenameNoExtension}",
@@ -55,8 +51,7 @@
       ],
       "preLaunchTask": "fpm: install"
     },
-    {
-      "name": "(gdb) Launch example",
+    { "name": "(gdb) Launch example",
       "type": "cppdbg",
       "request": "launch",
       // "program": "${workspaceFolder}/build/${workspaceFolderBasename}-demo",
@@ -82,8 +77,7 @@
       ],
       "preLaunchTask": "fpm: install example"
     },
-    {
-      "name": "(gdb) Launch Test",
+    { "name": "(gdb) Launch Test",
       "type": "cppdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/vscode/test/${fileBasenameNoExtension}",
@@ -106,6 +100,33 @@
         }
       ],
       "preLaunchTask": "fpm: test Single File"
-    }
+    },
+    {
+      "name": "Debug Legacy",
+      "type": "cppdbg",
+      "request": "launch",
+      // Executable name here:
+      "program": "${workspaceFolder}/executable.exe",
+      // Optional arguments here:
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "make legacy"
+    },
   ]
 }

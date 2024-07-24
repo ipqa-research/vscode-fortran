@@ -103,5 +103,58 @@
 		]
 
 
+	},
+	"nlopt":{
+		"scope": ["FortranFreeForm", "FortranFixedForm"],
+		"prefix":"nlopt",
+		"body": [
+			"real(pr) function fobj(x, gradient, func_data)",
+			"   real(pr), intent(in out) :: x(:)",
+			"   real(pr), intent(in out), optional :: gradient(:)",
+			"   class(*), intent(in), optional :: func_data",
+			"   ! Here goes the objective function to optimize",
+			"   fobj = 0.0_pr",
+			"end function",
+			"",
+			"real(pr) function optimize(X, func_data) result(y)",
+            "   use nlopt_wrap, only: create, destroy, nlopt_opt, nlopt_algorithm_enum",
+            "   use nlopt_callback, only: nlopt_func, create_nlopt_func",
+			"   real(pr), intent(in) :: X(:)",
+			"   class(*), intent(in), optional :: func_data",
+			"",
+			"   type(nlopt_opt) :: opt",
+			"   type(nlopt_func) :: f",
+			"   integer :: stat",
+			"",
+			"   f = create_nlopt_func(fobj, f_data=func_data)",
+			"   opt = create(nlopt_algorithm_enum%NELDER_MEAD, size(X))",
+            "   call opt%set_min_objective(f)",
+            "   call opt%optimize(x, y, stat)",
+		]
+	},
+	"Legacy Makefile":{
+		"prefix": "makeleg",
+		"body": [
+		"# Makefile for legact Fortran project",
+		"# Replace the files names with CAPS (and their extension) with your files",
+		"FC=ifort -g -extend-source",
+		"# Here put the files that are needed to compile, except the program file",
+		"# which should be in a 'src' folder",
+		"dependencies:",
+		"\tmkdir -p obj",
+		"\t$(FC) -c src/SOMEFILE.f90",
+		"\t$(FC) -c src/OTHERFILE.f",
+		"\tmv *.o obj/",
+
+		"# Here goes the main program file",
+		"# which should be in an 'app' folder",
+		"all: dependencies",
+		"\t$(FC) -o executable.exe ./app/MAIN_PROGRAM_FILE.for obj/* -qmkl",
+		"",
+
+		"clean:",
+		"\trm obj/*"
+		]
 	}
+
 }

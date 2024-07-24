@@ -3,8 +3,7 @@
   // for the documentation about the tasks.json format
   "version": "2.0.0",
   "tasks": [
-    {
-      "label": "fpm: install",
+    { "label": "fpm: install",
       "type": "shell",
       "command": "fpm",
       "args": [
@@ -19,8 +18,7 @@
         "isDefault": true
       }
     },
-    {
-      "label": "fpm: install example",
+    { "label": "fpm: install example",
       "type": "shell",
       "command": "fpm",
       "args": [
@@ -28,6 +26,7 @@
         "--profile",
         "debug",
         "--example",
+        "demo",
         "--runner",
         "'install -b -m 0711 -p -t ./build/'"
       ],
@@ -36,8 +35,7 @@
         "isDefault": true
       }
     },
-    {
-      "label": "fpm: test Single File",
+    { "label": "fpm: test Single File",
       "type": "shell",
       "command": "fpm",
       "args": [
@@ -58,8 +56,7 @@
       "dependsOn": ["Copy Directory Structure"],
       "dependsOrder": "sequence"
     },
-    {
-      "label": "Copy Directory Structure",
+    { "label": "Copy Directory Structure",
       "type": "shell",
       "options": { "cwd": "${workspaceFolder}/test" },
       "linux": {
@@ -76,6 +73,18 @@
           "\\;"
         ]
       }
-    }
+    }, 
+    { "label": "Setup OneAPI",
+      "command": "${command:intel-corporation.oneapi-environment-configurator.initializeEnvironment}"
+    },
+    { "label": "make legacy",
+      "type": "shell",
+      "command": "make",
+      "args": [ "all", "clean" ],
+      "group": { "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn":["Setup OneAPI"]
+    },
   ]
 }
